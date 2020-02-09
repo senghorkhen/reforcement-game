@@ -1,18 +1,27 @@
-document.querySelector('#resetButtonId').style.display = "none";
-var resultId = document.querySelector('#resultId');
+visability('resetButtonId', false);
 
+function setHtml(text){
+    var recipt= document.querySelector("#resultId");
+     recipt.innerHTML= text;
+ }
+
+function visability( element , visable){
+var result = visable ? "block": "none";
+document.querySelector("#" + element).style.display = result;
+
+}
 function onPlayClicked(){
-    document.querySelector('#playButtonId').style.display = "none";
-    document.querySelector('#resetButtonId').style.display = "block";
-    resultId.innerHTML = "Play";
-
+    visability('playButtonId',false);
+    visability('resetButtonId',true);
+    setHtml("Play");
 }
+
 function onResetClicked(){
-    document.querySelector('#playButtonId').style.display = "block";
-    document.querySelector('#resetButtonId').style.display = "none";
-    resultId.innerHTML = "Clear";
-
+    visability('playButtonId',true);
+    visability('resetButtonId',false);
+    setHtml("Clear");
 }
+
 const buttonPlay = document.querySelector('#playButtonId');
 buttonPlay.addEventListener('click',onPlayClicked);
 
