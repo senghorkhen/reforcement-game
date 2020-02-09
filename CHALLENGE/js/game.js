@@ -1,5 +1,7 @@
-visability('resetButtonId', false);
+const PLAY_DELAY = 2000;
+document.querySelector('click',onResetClicked);
 
+visability('resetButtonId', false);
 function setHtml(text){
     var recipt= document.querySelector("#resultId");
      recipt.innerHTML= text;
@@ -11,15 +13,17 @@ document.querySelector("#" + element).style.display = result;
 
 }
 function onPlayClicked(){
+    setHtml("WAIT!");
+   setTimeout(() => {
     visability('playButtonId',false);
     visability('resetButtonId',true);
-    setHtml("Play");
+    // setHtml(getimage());
+   }, PLAY_DELAY); 
 }
 
 function onResetClicked(){
     visability('playButtonId',true);
     visability('resetButtonId',false);
-    setHtml("Clear");
 }
 
 const buttonPlay = document.querySelector('#playButtonId');
